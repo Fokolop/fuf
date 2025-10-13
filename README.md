@@ -49,6 +49,9 @@
 
 [Основные команды для WSL](https://learn.microsoft.com/ru-ru/windows/wsl/basic-commands)
 
+### Docker
+1. Загрузить Docker - desktop.  
+https://www.docker.com/products/docker-desktop/
 ### Virtual Box (Для организации контроллера домена)
 
 [Загрузить и установить Virtual Box](https://www.oracle.com/virtualization/virtualbox/)
