@@ -50,8 +50,13 @@
 [Основные команды для WSL](https://learn.microsoft.com/ru-ru/windows/wsl/basic-commands)
 
 ### Docker
-1. Загрузить Docker - desktop.  
-https://www.docker.com/products/docker-desktop/
+1. [Загрузить Docker-Desktop](https://www.docker.com/products/docker-desktop/)
+1. Перезагрузить компьютер
+1. В Powershell выполнить ```docker images``` для показа установленных образов
+1. Установить тестовый контейнер ```docker run hello-world```
+Docker Desktop: The #1 Containerization Tool for Developers | Docker
+Docker Desktop is collaborative containerization software for developers. Get started and download Docker Desktop today on Mac, Windows, or Linux.
+ 
 ### Virtual Box (Для организации контроллера домена)
 
 [Загрузить и установить Virtual Box](https://www.oracle.com/virtualization/virtualbox/)
