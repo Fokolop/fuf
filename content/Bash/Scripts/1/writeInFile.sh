@@ -1,5 +1,4 @@
 #!/bin/bash
-# writeInFile.sh
 # Запись в файл
 echo "Это 1-я строка" > output.txt
 echo "Это 2-я строка" >> output.txt
