@@ -1,6 +1,6 @@
-## Практическая работа на примере готового образа Nginx в Docker
+## Практическая работа на примере готового образа Apache в Docker
 
-> **Nginx** - это легкий и небольшой веб-сервер
+> **Apache** - это легкий и небольшой веб-сервер
 
 ### Проверить Docker
 
@@ -9,7 +9,7 @@
 docker version
 ```
 
-![Скрин версии Docker](img/docker_version.png)
+![Скрин версии Docker](./Images/Version.png)
 
 > Готовые образы берутся из сторонних источников: **Docker Hub** или другие
 
@@ -42,7 +42,7 @@ docker container prune $(docker ps -q)
 docker ps -a
 ```
 
-![Тут нужен скриншот вывода]()
+![Тут нужен скриншот вывода](./Images/clear_docker.png)
 
 - Опционально можно удалить ненужные образы. Показать текущие образы:
 ```shell
@@ -59,7 +59,7 @@ docker rmi $(docker images -q)
 
 > Удалять нужно только учебные контейнеры и образы, т.к. есть риск потерять важные данные, которые могут содержаться в контейнерах!
 
-### Получение готового образа Nginx
+### Получение готового образа apache
 
 1. Поиск и получение готового образа на Docker Hub
 1. Создание и запуск контейнера из полученного образа
@@ -68,85 +68,52 @@ docker rmi $(docker images -q)
 
 Найти нужный образ на **Docker Hub**
 ```shell
-docker search nginx
+docker search apache
 ```
 
-![Скрин вывода поиска по слову nginx](img/docker_screen.png)
+![Скрин вывода поиска по слову apache](./Images/search_apache.png)
 
-Получить, создать и запустить Nginx
+Получить, создать и запустить apache
 ```shell
-docker run -d --name my-nginx -p 80:80 nginx
+docker run -d --name my-apache -p 80:80 apache
 ```
-
-Если запуск контейнера не удался, то проверьте уже созданные контейнеры с таким именем у себя
-```shell
-docker ps -a
-```
-
-![Тут нужен скриншот]()
 
 Показать загруженный на ваш компьютер образ
 ```shell
 docker images
 ```
 
-Показать работающий Nginx
-
-Способ 1
-```shell
-curl http://localhost/
-```
-
-![Скрин вывода curl](img/curl_nginx.png)
-
-Способ 2 - [открыть http://localhost/ адрес в браузере](http://localhost/)
-
-![Скрин nginx в браузере](img/web_nginx.png)
-
 Если нужно только получить готовый образ, без создания и запуска контейнера, то
 ```shell
-docker pull nginx
+docker pull apache
 ```
 
 Получить информацию по загруженному образу:
 ```shell
-docker inspect nginx
+docker inspect apache
 ```
 
 При необходимости остановить контейнер с таким именем:
 ```shell
-docker stop my-nginx
+docker stop my-apache
 ```
 Перезапустить контейнер по имени
 ```shell
-docker restart my-nginx
+docker restart my-apache
 ```
 Перезапустить контейнер по его **id**
 ```shell
 docker restart 2e6c42d9b6af
 ```
-Перед удалением нужно остановить указанный контейнер
-```shell
-docker stop my-nginx
-```
 
 Удалить выбранный контейнер по его имени
 ```shell
-docker rm my-nginx
+docker rm my-apache
 ```
 
-![Тут нужен скриншот вывода]()
+![Тут нужен скриншот вывода](./Images/delete_apache.png)
 
-Если нужно создать ещё один контейнер из этого образа, то:
-```shell
-docker run -d --name nginx-my -p 81:80 nginx
-```
-
-> изменить имя и порт приложения!
-
-[Открыть в браузере приложение из 2-го контейнера по адресу http://localhost:81/](http://localhost:81/)
-
-И можно удалить ещё и образ загруженного ранее **Nginx**:
+И можно удалить ещё и образ загруженного ранее apache:
 
 Получить id образа
 ```shell
@@ -158,33 +125,24 @@ docker images
 docker rmi 062a783918fb
 ```
 
-![Скрин состояния docker images](img/rm_image.png)
+![Скрин состояния docker images](./Images/delete_img_apache.png)
 
 ### Проверить работу контейнера
 
-Можно снова установить и запустить Nginx (если его удаляли ранее)
+Можно снова установить и запустить apache (если его удаляли ранее)
+
+Показать работающий apache
+
+Способ 1
 ```shell
-docker run -d --name my-nginx -p 80:80 nginx
+curl http://localhost/
 ```
 
-Показать наличие загруженного файла образа
-```shell
-docker images
-```
+![Скрин вывода curl](img/curl_apache.png)
 
-![Скрин образа](img/2_images.png)
+Способ 2 - [открыть http://localhost/ адрес в браузере](http://localhost/)
 
-Показать только запущенные контейнеры
-```shell
-docker ps
-```
-или показать все контейнеры (в т.ч. остановленные)
-```shell
-docker ps -a
-```
-![Скрин контейнера](img/contaurer.png)
-
-> Из одного образа можно получить несколько контейнеров!
+![Скрин apache в браузере](./Images/Work_localhost.png)
 
 ### Управление контейнером
 
@@ -197,7 +155,7 @@ docker ps -a
 
 Показать подробности о контейнере
 ```shell
-docker inspect my-nginx
+docker inspect my-apache
 ```
 
 Запустить мониторинг контейнеров
@@ -212,12 +170,12 @@ docker stats
 
 Получить лог контейнера
 ```shell
-docker logs my-nginx
+docker logs my-apache
 ```
 
 Показать логи в режиме ожидания
 ```shell
-docker logs -f my-nginx
+docker logs -f my-apache
 ```
 > Выйти из логов в режиме ожидания можно по `Ctrl+C`
 
@@ -227,34 +185,34 @@ docker logs -f my-nginx
 
 Остановить контейнер
 ```shell
-docker stop my-nginx
+docker stop my-apache
 ```
 
 Снова запустить контейнер
 ```shell
-docker start my-nginx
+docker start my-apache
 ```
 
 Перезапустить контейнер
 ```shell
-docker restart my-nginx
+docker restart my-apache
 ```
 
 Зайти в контейнер
 ```shell
-docker exec -it my-nginx /bin/bash
+docker exec -it my-apache /bin/bash
 ```
 или
 ```shell
-docker exec -it my-nginx bash
+docker exec -it my-apache bash
 ```
 или
 ```shell
-docker exec -it my-nginx /bin/sh
+docker exec -it my-apache /bin/sh
 ```
 или
 ```shell
-docker exec -it my-nginx sh
+docker exec -it my-apache sh
 ```
 
 внутри контейнера можно повыполнять некоторые команды Linux
@@ -279,7 +237,7 @@ apt update && apt install -y fastfetch
 ```shell
 fastfetch
 ```
-![Вывод команды fastfetch](img/fastfetch.png)
+![Вывод команды fastfetch](./Images/fastfetch.png)
 
 Можно установить ещё несколько приложений внутри Docker-контейнера:
 ```shell
@@ -292,28 +250,24 @@ apt update && apt install -y fastfetch htop cmatrix hollywood mc micro
 htop
 ```
 
-![Скрин вывода htop]()
-
 > Выйти из `htop` можно по **Q**
 
 ```shell
 cmatrix
 ```
 
-![Скрин вывода cmatrix]()
-
 > Выйти из `cmatrix` можно по **Q**
 
 ```shell
 hollywood
 ```
-![Скрин вывода hollywood]()
+![Скрин вывода приложений](./Images/more_app.png)
 
 > Выйти из `hollywood` можно по `Ctrl-C`
 
 Выйти из контейнера можно командой `exit`
 
-Отредактировать текст страницы приветствия Nginx (Находится в разработке!)
+Отредактировать текст страницы приветствия apache (Находится в разработке!)
 
 Открыть файл `index.html` для редактирования содержимого
 ```shell
@@ -324,7 +278,7 @@ micro /usr/local/apache2/htdocs/index.html
 
 [Проверить изменения на открытой странице >>](http://localhost/)
 
-![Скрин изменённой страницы в браузере](img/)
+![Скрин изменённой страницы в браузере](./Images/rename_localhost2.png)
 
 Остановить все запущенные контейнеры
 ```shell
