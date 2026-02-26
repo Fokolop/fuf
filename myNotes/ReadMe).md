@@ -77,7 +77,7 @@ exit 0
 - Аналогично Bash-версии: обновление локального репозитория A, копирование содержимого в B, исключая папку .git.
 
 Файл: sync_repos.ps1
-## Требования: PowerShell 5+ (Windows) или PowerShell 7+ (跨 платформа)
+## Требования: PowerShell 5+ (Windows) или PowerShell 7+
 ```
 param(
   [string]$RepoA = "$env:USERPROFILE\repoA",
