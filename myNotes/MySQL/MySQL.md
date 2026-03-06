@@ -33,7 +33,7 @@ docker run -d \
 ```bash
 docker ps -a
 ```
-![alt text](./img/work_MySQL.png)
+![alt text](images/mySQLps.png)
 Вы должны увидеть контейнер `mysql-server` со статусом `Up` и портом `0.0.0.0:3306->3306/tcp`.
 
 
@@ -46,7 +46,7 @@ docker exec -it mysql-server mysql -u root -p
 ```
 После ввода пароля (`my-secret-pw`) вы попадете в консоль MySQL.
 
-![alt text](./img/password.png)
+![alt text](images/workMySQL.png)
 
 **Способ Б: Подключение с хост-машины:**
 Если на вашем компьютере установлен MySQL-клиент:
@@ -78,7 +78,7 @@ CREATE TABLE test (id INT PRIMARY KEY, name VARCHAR(50));
 -- Выйти из MySQL
 EXIT;
 ```
-![alt text](./img/worked.png)
+![alt text](images/status.png)
 
 #### 7. Управление контейнером MySQL
 - Остановка контейнера:
