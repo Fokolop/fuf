@@ -33,7 +33,7 @@ docker run -d \
 ```bash
 docker ps -a
 ```
-![alt text](./images/AdminerPs.png)
+![alt text](./images/adminer.png)
 Вы должны увидеть контейнер `adempiere` со статусом `Up`. Подождите 1-2 минуты, пока приложение полностью инициализируется.
 
 Проверьте логи, чтобы убедиться, что процесс загрузки завершен:
@@ -44,9 +44,9 @@ docker logs adempiere
 #### 4. Доступ к системе
 Откройте браузер и перейдите по адресу:
 ```
-http://localhost:8084
+http://localhost:8080
 ```
-![alt text](./images/WorkAdminer.png)
+![alt text](./images/web_adminer.png)
 
 **Данные для входа по умолчанию:**
 - **Пользователь:** `GardenAdmin`
