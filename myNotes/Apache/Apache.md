@@ -9,7 +9,7 @@
 docker version
 ```
 
-![Скрин версии Docker](./Images/Version.png)
+![Скрин версии Docker](./Images/docker_version.png)
 
 > Готовые образы берутся из сторонних источников: **Docker Hub** или другие
 
@@ -42,7 +42,7 @@ docker container prune $(docker ps -q)
 docker ps -a
 ```
 
-![Тут нужен скриншот вывода](./Images/clear_docker.png)
+![Тут нужен скриншот вывода](./Images/1.png)
 
 - Опционально можно удалить ненужные образы. Показать текущие образы:
 ```shell
@@ -71,7 +71,7 @@ docker rmi $(docker images -q)
 docker search apache
 ```
 
-![Скрин вывода поиска по слову apache](./Images/search_apache.png)
+![Скрин вывода поиска по слову apache](./Images/Obraz.png)
 
 Получить, создать и запустить apache
 ```shell
@@ -111,8 +111,6 @@ docker restart 2e6c42d9b6af
 docker rm my-apache
 ```
 
-![Тут нужен скриншот вывода](./Images/delete_apache.png)
-
 И можно удалить ещё и образ загруженного ранее apache:
 
 Получить id образа
@@ -125,8 +123,6 @@ docker images
 docker rmi 062a783918fb
 ```
 
-![Скрин состояния docker images](./Images/delete_img_apache.png)
-
 ### Проверить работу контейнера
 
 Можно снова установить и запустить apache (если его удаляли ранее)
@@ -138,11 +134,9 @@ docker rmi 062a783918fb
 curl http://localhost/
 ```
 
-![Скрин вывода curl](img/curl_apache.png)
-
 Способ 2 - [открыть http://localhost/ адрес в браузере](http://localhost/)
 
-![Скрин apache в браузере](./Images/Work_localhost.png)
+![Скрин apache в браузере](./Images/It%20works.png)
 
 ### Управление контейнером
 
@@ -163,7 +157,7 @@ docker inspect my-apache
 docker stats
 ```
 
-![](img/2_stats.png)
+![](./Images/stats.png)
 
 
 > Выйти из мониторинга контейнеров можно по `Ctrl+C`
@@ -179,7 +173,7 @@ docker logs -f my-apache
 ```
 > Выйти из логов в режиме ожидания можно по `Ctrl+C`
 
-![](img/logs.png)
+![](./Images/logs.png)
 
 ### Управление контейнером
 
@@ -220,13 +214,12 @@ docker exec -it my-apache sh
 ```shell
 uname -a
 ```
-![](img/uname.png)
 
 Получить больше информации об ОС контейнера
 ```shell
 cat /etc/os-release
 ```
-![](img/os_release.png)
+![](./Images/cat.png)
 
 Установить **Fastfetch**
 ```shell
@@ -237,7 +230,7 @@ apt update && apt install -y fastfetch
 ```shell
 fastfetch
 ```
-![Вывод команды fastfetch](./Images/fastfetch.png)
+![Вывод команды fastfetch](./Images/l.png)
 
 Можно установить ещё несколько приложений внутри Docker-контейнера:
 ```shell
@@ -255,13 +248,14 @@ htop
 ```shell
 cmatrix
 ```
-
 > Выйти из `cmatrix` можно по **Q**
 
 ```shell
 hollywood
 ```
-![Скрин вывода приложений](./Images/more_app.png)
+![Скрин вывода приложений](./Images/m.png)
+![Скрин вывода приложений](./Images/n.png)
+![Скрин вывода приложений](./Images/o.png)
 
 > Выйти из `hollywood` можно по `Ctrl-C`
 
@@ -278,7 +272,7 @@ micro /usr/local/apache2/htdocs/index.html
 
 [Проверить изменения на открытой странице >>](http://localhost/)
 
-![Скрин изменённой страницы в браузере](./Images/rename_localhost2.png)
+![Скрин изменённой страницы в браузере](./Images/message.png)
 
 Остановить все запущенные контейнеры
 ```shell
