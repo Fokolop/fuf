@@ -17,6 +17,7 @@ docker pull tleemcjr/metasploitable2
 ```shell
 docker run --name metasploitable2 -it tleemcjr/metasploitable2:latest sh -c "/bin/services.sh && bash"
 ```
+![](./img/tableDocker.png)
 
 Остановить контейнер и выйти из него
 ```shell
